@@ -1,0 +1,96 @@
+.editSup{
+    flex: 4;
+    width: 100%;
+}
+
+.widgets{
+    display: flex;
+    margin: 20px;
+}
+
+.widgetInfo{
+    flex: 1;
+    -webkit-box-shadow: inset 0px 0px 27px -30px #000000; 
+    box-shadow: inset 0px 0px 27px -30px #000000;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.widgetForm{
+    flex: 2;
+    -webkit-box-shadow: inset 0px 0px 27px -30px #000000; 
+    box-shadow: inset 0px 0px 27px -30px #000000;
+    border-radius: 15px;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+.InfoItem{
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    flex-basis: 1;
+    
+}
+.IconInfo {
+    margin-right: 15px;
+}
+
+.updateItem {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.updateItem>label{
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.updateItemInput{
+    
+    border:none;
+    width: 250px;
+    height: 30px;
+    border-bottom: 1px solid gray;
+}
+
+.updateItemButton{
+    float: right;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.updateConfirm{
+    color: gray;
+    cursor: pointer;
+}
+
+.updateButton
+{
+    margin-left: 40px;
+    margin-top: 10px;
+    width: 75px;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    background-color: darkblue;
+    color: white;
+    font-weight: 600;
+    float: right ;
+}
+
+.cancelButton
+{
+    
+    width: 75px;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    background-color: gray;
+    color: white;
+    font-weight: 600;
+}

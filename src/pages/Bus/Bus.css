@@ -1,0 +1,8 @@
+.Bus{
+    flex: 4;
+    margin: 20px;
+    padding: 20px;
+    -webkit-box-shadow: inset 0px 0px 27px -30px #000000; 
+    box-shadow: inset 0px 0px 27px -30px #000000;
+    border-radius: 15px;
+}

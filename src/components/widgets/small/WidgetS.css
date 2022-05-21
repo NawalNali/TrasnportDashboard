@@ -1,0 +1,79 @@
+.WidgetS {
+    flex: 1;
+    -webkit-box-shadow: inset 0px 0px 27px -30px #000000; 
+    box-shadow: inset 0px 0px 27px -30px #000000;
+    border-radius: 15px;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+.head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    
+}
+
+.title {
+    
+    font-size: 30px;
+    font-weight: 600;
+    
+    
+}
+
+.titleLogo {
+    font-size: 45px !important;
+    max-width: 100%;
+    flex-basis: 10%;
+    margin-right: 20px;
+}
+
+.list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.listItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0px;
+}
+
+.task{
+    display: flex;
+    flex-direction: column;
+}
+
+.taskName{
+    flex: 2;
+    font-weight: 600;
+}
+
+.taskDate {
+    flex: 1;
+    margin-top: 10px;
+    font-weight: 300;
+}
+
+.button {
+    width: 45px;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border: none;
+    border-radius: 50%;
+    padding: 7px 10px;
+    background-color: #eeeef7;
+    color: #555;
+    cursor: pointer;
+
+}
+
+.buttonIcon{
+    font-size: 30px !important;
+}

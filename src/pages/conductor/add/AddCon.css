@@ -1,0 +1,92 @@
+.AddCon {
+    flex: 4;
+}
+
+.widgets{
+    display: flex;
+    margin: 20px;
+}
+
+.form{
+    flex: 2;
+    -webkit-box-shadow: inset 0px 0px 27px -30px #000000; 
+    box-shadow: inset 0px 0px 27px -30px #000000;
+    border-radius: 15px;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+.addItem{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.addItem>label{
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.addInput{
+    border:none;
+    width: 250px;
+    height: 30px;
+    border-bottom: 1px solid gray;
+}
+
+.addButtonContainer{
+    float: right;
+    display: flex;
+    flex-direction: column;
+}
+
+.cancelButtonContainer{
+    float: left;
+}
+
+.confirmAdd{
+    color: gray;
+    cursor: pointer;
+}
+
+.addButton{
+    
+    margin-top: 10px;
+    width: 95px;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    background-color: darkblue;
+    color: white;
+    font-weight: 600;
+    
+}
+
+.cancelButton{
+    margin-top: 30px;
+    width: 95px;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    background-color: gray;
+    color: white;
+    font-weight: 600;
+}
+
+.phone
+{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.prefixMenu{
+    border:none;
+    
+    width: 71px;
+    
+    margin-top: 25px;
+    margin-right: 15px;
+}
