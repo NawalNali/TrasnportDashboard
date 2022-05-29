@@ -12,12 +12,15 @@ export default function WidgetL() {
       <h3 className='title'>Least Alerts</h3>
       
       <table className="table">
-        <tr className="tablerow">
+          <thead>
+          <tr className="tablerow">
           <th className="tablehead">Name</th>
           <th className="tablehead">ID</th>
           <th className="tablehead">Date</th>
           <th className="tablehead">Status</th>
-        </tr>
+          </tr>
+          </thead>
+          <tbody>
         <tr className="tablerow">
           <td className="tableName">
             Ahmad Rishi
@@ -48,6 +51,7 @@ export default function WidgetL() {
             <Button type='Declined' />
           </td>
         </tr>
+        </tbody>
       </table>
     </div>
   )

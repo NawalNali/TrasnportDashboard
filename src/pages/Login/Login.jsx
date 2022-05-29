@@ -1,4 +1,5 @@
-import * as React from 'react';
+import {useRef, useState, useEffect, useContext} from 'react';
+import './Login.css'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,21 +12,81 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import axios from 'axios';
-import App from '../../App';
-import { Navigate } from 'react-router-dom';
+import AuthContext from '../../Authprovider';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 
-export default function Login() {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        const user = new FormData();
-        user.append('adminname', data.get('adminname'));
-        user.append('password', data.get('password'));
-        axios.post('http://localhost/panelApi/login/', data).then(res => {
-            console.log(res.data);
-        })
-      };
+export default function Login () {
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
+    const { setAuth } = useContext(AuthContext);
+    const userRef = useRef();
+    const errRef = useRef();
+
+    const [user, setUser] = useState('');
+    const [pwd, setPwd] = useState('');
+    const [errMsg, setErrMsg] = useState('');
+    
+      useEffect(() => {
+      userRef.current.focus();
+    }, []);  
+
+    useEffect(() => {
+      setErrMsg('');
+    }, [user, pwd]);
+
+
+
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        const data = new FormData();
+        data.append('adminname', user);
+        data.append('password', pwd);
+        try
+        {
+          const res = await axios.post('http://localhost/panelApi/login/', data);
+        if(res?.data != '')
+        {
+          const accessToken = res.data.adminToken;
+          
+          setAuth({ user, pwd, accessToken })
+        }
+        setUser('');
+        setPwd('');
+        navigate(from, {replace: true})
+      }
+
+      catch(err){
+        console.log(err);
+        if(!err?.response)
+      {
+        setErrMsg('No Server Response');
+      }
+
+      else if(err.response?.status === 400)
+      {
+        setErrMsg('Missing Username or Password');
+      }
+
+      else if(err.response?.status === 401)
+      {
+        setErrMsg('Unauthorized');
+      }
+
+      else{
+        setErrMsg('Login Failed');
+      }
+      errRef.current.focus();
+      }
+        //Axios with auth
+      }
+
+      
+
+
 
       return(
         <Container component="main" maxWidth="xs">
@@ -41,6 +102,7 @@ export default function Login() {
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
+          <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
@@ -52,8 +114,10 @@ export default function Login() {
               id="adminname"
               label="Username"
               name="adminname"
-              
+              ref={userRef}
               autoFocus
+              onChange={(e) => setUser(e.target.value)}
+              value={user}
             />
             <TextField
               margin="normal"
@@ -63,7 +127,9 @@ export default function Login() {
               label="Password"
               type="password"
               id="password"
-              autoComplete="current-password"
+              onChange={(e) => setPwd(e.target.value)}
+              value={pwd}
+              
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
