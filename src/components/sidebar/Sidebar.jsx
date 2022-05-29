@@ -22,6 +22,13 @@ export default function Sidebar() {
                     </li>
                     </Link>
 
+
+                    
+                </ul>
+                <h3 className='sidebarTitle'>Users</h3>
+                <ul className="sidebarList">
+                    
+
                     <Link to="/supervisor" reloadDocument={true} style={{textDecoration: 'none', color: "#555"}}>
                     <li className="sidebarListItem">
                         <SupervisorAccount className='sidebarIcon'/>
@@ -42,6 +49,19 @@ export default function Sidebar() {
                         Students
                     </li>
                     </Link>
+                    
+                    
+
+                    
+
+                    
+                </ul>
+
+                <h3 className='sidebarTitle'>Services</h3>
+                <ul className="sidebarList">
+                    
+
+                    
                     <Link to="/bus" reloadDocument={true} style={{textDecoration: 'none', color: "#555"}}>
                     <li className="sidebarListItem">
                         <DirectionsBusFilled className='sidebarIcon'/>
@@ -61,6 +81,14 @@ export default function Sidebar() {
                         Alerts
                     </li>
                     </Link>
+
+                    
+                </ul>
+
+                <h3 className='sidebarTitle'>Support </h3>
+                <ul className="sidebarList">
+                    
+
 
                     <Link to="/supervisor" reloadDocument={true} style={{textDecoration: 'none', color: "#555"}}>
                     <li className="sidebarListItem">

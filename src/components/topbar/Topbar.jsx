@@ -1,6 +1,6 @@
 import React from 'react'
 import './Topbar.css'
-import { NotificationsNone, Language, Settings } from '@mui/icons-material';
+import { NotificationsNone, Language, Logout } from '@mui/icons-material';
 import {
     Link
   } from "react-router-dom";
@@ -18,12 +18,11 @@ export default function Topbar() {
                     <NotificationsNone/>
                     <span className="topIconBadge">2</span>
                 </div>
-                <div className="topbarIconContainer">
-                    <Language />
-                    <span className="topIconBadge">2</span>
-                </div>
-                <div className="topbarIconContainer">
-                    <Settings />
+                
+                <div onClick={() => {console.log("SSS")}} className="topbarIconContainer">
+                    
+                    <Logout />
+                    
                 </div>
                 
             </div>
