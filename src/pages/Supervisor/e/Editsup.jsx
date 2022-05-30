@@ -3,6 +3,7 @@ import axios from 'axios'
 import './EditSup.css'
 import { useParams, useNavigate } from 'react-router-dom';
 import {  PermIdentity, Grid3x3, CalendarToday, Home, Phone } from '@mui/icons-material';
+import Input from '../../../components/dobInput/Input';
 
 class EditSup extends Component {
 
@@ -54,16 +55,15 @@ class EditSup extends Component {
             </div>
             <div className="updateItem">
               <label>Date of Birth</label>
-              <input type="date" 
-              onChange={(e) => {
+              
+
+              <Input className="updateItemInput" onchange={(e) => {
                 
                 
                 tempSupevisor['dob'] = e.target.value
                 
                 this.setState({supervisor: tempSupevisor});
-              }}
-                      className='updateItemInput'
-              />
+              }} /> 
             </div>
             <div className="updateItem">
               <label>Address</label>

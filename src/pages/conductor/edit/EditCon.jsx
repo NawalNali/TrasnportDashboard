@@ -3,6 +3,7 @@ import axios from 'axios'
 import './EditCon.css'
 import { useParams, useNavigate } from 'react-router-dom';
 import {  PermIdentity, Grid3x3, CalendarToday, Home, Phone } from '@mui/icons-material';
+import Input from '../../../components/dobInput/Input';
 
 class EditCon extends Component{
     constructor() {
@@ -48,15 +49,14 @@ class EditCon extends Component{
             </div>
             <div className="updateItem">
               <label>Date of Birth</label>
-              <input type="date" 
-              onChange={(e) => {
+              
+
+              <Input className='updateItemInput' onchange={(e) => {
                 
                 
                 tempConductor['dob'] = e.target.value;
                 this.setState({conductor: tempConductor});
-              }}
-                      className='updateItemInput'
-              />
+              }} />
             </div>
             <div className="updateItem">
               <label>Address</label>

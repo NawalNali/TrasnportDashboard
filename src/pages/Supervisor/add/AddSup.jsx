@@ -3,6 +3,7 @@ import './AddSup.css'
 import axios from 'axios'
 import NativeSelect from '@mui/material/NativeSelect';
 import { useNavigate } from 'react-router-dom';
+import Input from '../../../components/dobInput/Input';
 
 export default function AddSup() {
 
@@ -36,9 +37,10 @@ export default function AddSup() {
                     
                     <div className='addItem'>
                         <label>Date of Birth</label>
-                        <input type="date" className='addInput' onChange={e => {
+
+                        <Input className='addInput' onchange={e => {
                             data.set('dob', e.target.value);
-                        }}/>
+                        }} />
                     </div>
                     <div className='addItem'>
                         <label>Address</label>
