@@ -1,16 +1,15 @@
-.student{
+.complain{
     flex: 5;
     width: 100%;
-
+    
     padding: 0px 20px;
 }
 
-.studentList{
+.complainList{
     padding: 20px 20px;
 }
 
-.stdDelete
-{
+.compDelete{
     border: none;
     border-radius: 10px;
     padding: 5px 10px;

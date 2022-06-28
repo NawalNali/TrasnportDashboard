@@ -43,7 +43,7 @@ export default function Sidebar() {
                     </li>
                     </Link>
 
-                    <Link to="/supervisor" reloadDocument={true} style={{textDecoration: 'none', color: "#555"}}>
+                    <Link to="/students" reloadDocument={true} style={{textDecoration: 'none', color: "#555"}}>
                     <li className="sidebarListItem">
                         <Person className='sidebarIcon'/>
                         Students
@@ -75,7 +75,7 @@ export default function Sidebar() {
                     </li>
                     </Link>
 
-                    <Link to="/supervisor" reloadDocument={true} style={{textDecoration: 'none', color: "#555"}}>
+                    <Link to="/alerts" reloadDocument={true} style={{textDecoration: 'none', color: "#555"}}>
                     <li className="sidebarListItem">
                         <Warning className='sidebarIcon'/>
                         Alerts
@@ -90,7 +90,7 @@ export default function Sidebar() {
                     
 
 
-                    <Link to="/supervisor" reloadDocument={true} style={{textDecoration: 'none', color: "#555"}}>
+                    <Link to="/complains" reloadDocument={true} style={{textDecoration: 'none', color: "#555"}}>
                     <li className="sidebarListItem">
                         <Reviews className='sidebarIcon'/>
                         Complains

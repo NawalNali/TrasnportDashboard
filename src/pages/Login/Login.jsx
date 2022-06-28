@@ -12,17 +12,17 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import axios from 'axios';
-import AuthContext from '../../Authprovider';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+
+import { UserContext } from '../../UserContext';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Login () {
 
     const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || "/";
-
-    const { setAuth } = useContext(AuthContext);
+    
+   const [value, setValue] = useContext(UserContext);
+    
     const userRef = useRef();
     const errRef = useRef();
 
@@ -50,13 +50,12 @@ export default function Login () {
           const res = await axios.post('http://localhost/panelApi/login/', data);
         if(res?.data != '')
         {
-          const accessToken = res.data.adminToken;
-          
-          setAuth({ user, pwd, accessToken })
+          setValue(res.data);
+          navigate('/', {replace: true});
         }
         setUser('');
         setPwd('');
-        navigate(from, {replace: true})
+        
       }
 
       catch(err){

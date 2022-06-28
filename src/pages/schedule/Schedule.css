@@ -1,3 +1,10 @@
 .Schedule{
     flex: 5;
+    width: 100%;
+
+    padding: 0px 20px;
+}
+
+.scheduleList{
+    padding: 20px 20px;
 }

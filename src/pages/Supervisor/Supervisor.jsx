@@ -19,10 +19,7 @@ class Supervisor extends React.Component {
       {data: sID,
       
       
-    }, )
-      .then(res => {
-        console.log(res.data)
-      })
+    }, );
 
       window.location.reload();
     }
@@ -67,6 +64,7 @@ componentDidMount(){
   axios.get('http://localhost/panelApi/supervisor/')
   .then(response => {
     const supervisor = response.data;
+    console.log(supervisor);
     this.setState({ supervisor });
     
   })
@@ -84,23 +82,20 @@ render(){
   
   return (
     <div className='supervisor'>
-      <h1>Supervisor</h1>
+      <h1>Supervisors</h1>
       <DataGrid className='supervisorList' rows={this.state.supervisor}
                 columns={this.state.columns}
                 pageSize={10}
                 rowsPerPageOptions={[10]}
                 disableSelectionOnClick
                 editMode='cell'
-                onCellEditCommit={(params, event) => {
+                onCellEditCommit={(params, _) => {
                   
                   var data = new FormData();
                   data.append('notesAdd', true);
                   data.append('notes', params.value != null ? params.value : "");
                   data.append('id', params.id);
-                  axios.post('http://localhost/panelApi/supervisor/', data)
-                  .then(res => {
-                    console.log(res);
-                  });
+                  axios.post('http://localhost/panelApi/supervisor/', data);
                   
                 }}
                 components={
@@ -122,6 +117,8 @@ render(){
                     }
                   }
                 }
+
+               
                 
                 />
                 

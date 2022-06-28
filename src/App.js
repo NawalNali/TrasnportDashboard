@@ -4,7 +4,7 @@ import Homepage from "./pages/homepage/Homepage.jsx";
 import {
   BrowserRouter as Router,
   Routes,
-  Route
+  Route,
 } from "react-router-dom";
 import Supervisor from "./pages/Supervisor/Supervisor.jsx";
 
@@ -21,73 +21,69 @@ import Login from './pages/Login/Login.jsx'
 
 import Layout from "./components/Layout/Layout.jsx";
 import Unauthorized from "./components/Unauthorized/Unauthorized.jsx";
-import RequireAuth from './components/Authentication/RequireAuth'
 import Missing from "./components/NotFound/Missing.jsx";
-import useAuth from "./hooks/useAuth.jsx";
+import { useState, useMemo } from 'react';
+import { UserContext } from "./UserContext.jsx";
+import NewRoute from "./pages/schedule/newRoute.jsx";
+import Alerts from "./pages/Alerts/Alerts.jsx";
+import Student from "./pages/students/Students.jsx";
+import SpuStudent from "./pages/SpuStudent/SpuStudent.jsx";
+import Complains from "./pages/Complains/complains.jsx";
+import NewComplain from "./pages/Complains/Add/newComplain.jsx";
+import Complain from "./pages/Complains/Complain/Complain.jsx";
+import NewBus from "./pages/Bus/NewBus.jsx";
+import ModifyBus from "./pages/Bus/ModifyBus.jsx";
+
 
 
 function App() {
   
-  const {auth} = useAuth();
+  const [user, setUser] = useState();
+  
+  const userProvider = useMemo(() => ([user, setUser]), [user, setUser]);
+  
   
   return (
+    <UserContext.Provider value={userProvider}>
+      <Routes>
+          <Route
+            exact path="/login"
+            element={<Login />} />
+        
+          <Route path="/" element={<Layout />} >
 
-    
- 
-      
-      <div className="container">
-        
-        
-        <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route exact path="/supervisor" element={<Supervisor />} />
+            <Route exact path="/supervisor/:id" element={<EditSup />} />
+            <Route exact path="/supervisor/add" element={<AddSup />} /> 
+            <Route exact path="/conductor" element={<Conductor />} />  
+            <Route exact path="/conductor/add" element={<AddCon />} /> 
+            <Route exact path="/conductor/:id" element={<EditCon />} />
+            <Route exact path="/schedule" element={<Schedule />} />  
+            <Route exact path="/schedule/add" element={<NewRoute />} />  
+            <Route exact path="/bus" element={<Bus />} />
+            <Route exact path="/bus/add" element={<NewBus />} /> 
+            <Route exact path="/bus/:id" element={<ModifyBus />} />
+            <Route exact path="/alerts" element={<Alerts />} />
+            <Route exact path="/students" element={<Student />} />
+            <Route exact path="/students/register" element={<SpuStudent />} />
+            <Route exact path="/complains" element={<Complains />} />
+            <Route exact path="/complains/add" element={<NewComplain />} />
+            <Route exact path="/complains/:id" element={<Complain />} />
+            <Route path="*" element={<Missing  />} />
+
+
+            </Route>
+            
           
-          <Route exact path="/" element={<Layout /> } >
-          <Route exact path="/login" element={<Login />} />
+   
 
-          <Route element={<RequireAuth />}>
-          <Route exact path="/" element={<Homepage />} />
-          </Route>
-
-          <Route element={<RequireAuth />}>
-          <Route exact path="/supervisor" element={<Supervisor />} />
-          </Route>
-
-          <Route element={<RequireAuth />}>
-          <Route exact path="/supervisor/:id" element={<EditSup />} />
-          </Route>
-
-          <Route element={<RequireAuth />}>
-          <Route exact path="/supervisor/add" element={<AddSup />} /> 
-          </Route>
-
-          <Route element={<RequireAuth />}>
-          <Route exact path="/conductor" element={<Conductor />} />  
-          </Route>
-
-          <Route element={<RequireAuth />}>
-          <Route exact path="/conductor/add" element={<AddCon />} /> 
-          </Route>
-
-          <Route element={<RequireAuth />}>
-          <Route exact path="/conductor/:id" element={<EditCon />} />  
-          </Route>
-
-          <Route element={<RequireAuth />}>
-          <Route exact path="/schedule" element={<Schedule />} />  
-          </Route>
-
-          <Route element={<RequireAuth />}>
-          <Route exact path="/bus" element={<Bus />} /> 
-          </Route>
-
-          <Route exact path="/unauthorized" element={<Unauthorized />} />
-          <Route path="*" element={<Missing />} />
+      <Route path="*" element={<Unauthorized  />} />
 
 
-
-          </Route>
-        </Routes>
-      </div>
-      
+        
+      </Routes>
+    </UserContext.Provider>
   );
 }
 

@@ -1,0 +1,30 @@
+.displayComplain{
+    flex: 5;
+    width: 100%;
+}
+
+.widgetInfo{
+    margin: 20px;
+    -webkit-box-shadow: inset 0px 0px 27px -30px #000000; 
+    box-shadow: inset 0px 0px 27px -30px #000000;
+    border-radius: 15px;
+    padding: 20px;
+    
+}
+
+.studentContainer{
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+}
+
+.stdID{
+    margin: 20px;
+    flex: 1;
+    
+}
+
+.stdName{
+    margin: 20px;
+    flex: 2;
+}

@@ -1,10 +1,18 @@
-import React from 'react'
+import {React, useContext} from 'react'
 import './Topbar.css'
 import { NotificationsNone, Language, Logout } from '@mui/icons-material';
 import {
     Link
   } from "react-router-dom";
+
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../../UserContext';
+import axios from 'axios';
 export default function Topbar() {
+    const navigate = useNavigate();
+
+    const [user, setUser] = useContext(UserContext);
+    
   return (
     <div className='topbar'>
         <div className="topbarWrapper">
@@ -14,12 +22,14 @@ export default function Topbar() {
                 </Link>
             </div>
             <div className="topRight">
-                <div className="topbarIconContainer">
-                    <NotificationsNone/>
-                    <span className="topIconBadge">2</span>
-                </div>
                 
-                <div onClick={() => {console.log("SSS")}} className="topbarIconContainer">
+                
+                <div onClick={() => {
+                    setUser(null);
+                    localStorage.clear();
+                    axios.post("http://localhost/panelApi/logout");
+                    navigate('/login', {replace: true});
+                }} className="topbarIconContainer">
                     
                     <Logout />
                     
