@@ -66,7 +66,7 @@ export default function SpuStudent() {
                 { field: 'lName', headerName: 'Last Name', flex: 1, sortable: false },
                 { field: 'DOB', headerName: 'Date of Birth', flex: 2, sortable: false, filterable: false },
                 { field: 'address', headerName: 'Address', flex: 3, sortable: false, filterable: false },
-                { field: 'status', headerName: 'Status', flex: 2, sortable: false, filterable: false, renderCell: (params) => {
+                { field: 'status', headerName: 'Status', flex: 2, sortable: false, renderCell: (params) => {
                     return(
                         params.row.status == 1? "Registered" : "Not Registered"
                     )

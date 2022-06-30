@@ -1,6 +1,6 @@
 import { Add } from '@mui/icons-material';
 import axios from 'axios';
-import React from 'react'
+import React, { useRef } from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -19,26 +19,65 @@ export default function NewRoute() {
     const [goingTimes, setGoingTimes] = useState();
     const [departTimes, setDepartTimes] = useState();
     const [stops, setStops] = useState();
-    const [notes, setNotes] = useState();
+    const [notes, setNotes] = useState("");
 
+    const [routes, setRoutes] = useState([]);
+    const [errMsg, setErrMsg] = useState('');
+    const errRef = useRef();
 
+    useEffect(() => {
+        axios.get('http://localhost/panelApi/route/')
+        .then(res => {
+            setRoutes(res?.data);
+        })
+    }, [])
+
+    useEffect(() => {
+        for(var i = 0; i < routes.length; i++)
+        {
+            if(routes[i].id == id)
+            {
+                setErrMsg('This ID Exists');
+                break;
+            }
+            else
+            setErrMsg('');
+        }
+        if(id > 100)
+        {
+            setErrMsg("ID SHOULD BE > 100");
+        }
+    }, [id]);
 
   
     
 
     const navigate = useNavigate();
     const handleAdd = () => {
+        var gTime = "";
+        var dTime = "";
+        for(var i = 0; i < 3; i++)
+        {
+            if(goingTimes[i])
+                gTime += goingTimes[i] + "\n";
+        }
+        for(var i = 0; i < 3; i++)
+        {   if(departTimes[i])
+                dTime += departTimes[i] + "\n";
+        }
+        console.log(gTime);
         var data = new FormData();
         data.append('id', id);
         data.append('routeName', routeName);
-        data.append('goingTimes', goingTimes);
-        data.append('departTimes', departTimes);
+        data.append('goingTimes', gTime);
+        data.append('departTimes', dTime);
         data.append('stops', stops);
         data.append('notes', notes);
-        axios.post('http://localhost/panelApi/route/index.php', data)
-        .then(res => {
-            console.log(res?.data);
-        });
+        data.append('insert', true);
+        axios.post('http://localhost/panelApi/route/', data)
+        .then(() => {
+            navigate(-1, {replace: true});
+        })
        
         
     }
@@ -51,8 +90,8 @@ export default function NewRoute() {
         <div className="widgets">
             <div className="form">
                 <h1>Add New Route</h1>
-                <form method='POST'>
-
+                <form>
+                <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     <div className="addItem">
                         <label>ID</label>
                         <input type="number" className='addInput' min="1" max="150" onChange={e => {
@@ -70,7 +109,8 @@ export default function NewRoute() {
                     </div>
 
                     <div className="addItem">
-                        <span style={{display: 'flex'}}><label>Going Times</label> <button onClick={e => {
+                        <span style={{display: 'flex'}}><label>Going Times</label> <button className={going.length < 3 ? '' : 'offscreen'}
+                        onClick={e => {
                             e.preventDefault();
                             setGoing([...going, going.length])
                             
@@ -83,13 +123,17 @@ export default function NewRoute() {
                                 return(
                                     
                                     <TimePicker name='goingTime' locale='sv-sv' className="addInput" clockIcon={null} disableClock 
-                                                maxTime="17:30:00" minTime="06:00:00" clearIcon={null} 
+                                                maxTime="11:00:00" minTime="06:00:00" clearIcon={null} 
                                                 onChange={(e) => {
                                                     
-                                                    setGoingTimes(String(e));
+                                                    setGoingTimes({ ...goingTimes, 
+                                                        [index]: e
+                                                    });
                                                     
                                                     
-                                                }}/>
+                                                }}
+                                                
+                                                />
                                 )
                             })
                         }
@@ -97,7 +141,8 @@ export default function NewRoute() {
 
                     <div className="addItem">
                         <span><label>Departure Times</label>
-                        <button onClick={e => {
+                        <button className={depart.length < 3 ? '' : 'offscreen'}
+                         onClick={e => {
                             e.preventDefault();
                             setDepart([...depart, depart.length]);
                         }}
@@ -110,9 +155,11 @@ export default function NewRoute() {
                             depart.map((index) => {
                                 return(
                                     <TimePicker name='departTime' locale='sv-sv' className="addInput" clockIcon={null} disableClock 
-                                                maxTime="17:30:00" minTime="06:00:00" clearIcon={null} 
+                                                maxTime="17:30:00" minTime="12:00:00" clearIcon={null} 
                                                 onChange={(e) => {
-                                                    setDepartTimes(String(e))
+                                                    setDepartTimes({...departTimes,
+                                                        [index] : e
+                                                    })
                                                 }} />
                                 )
                             })
@@ -137,7 +184,7 @@ export default function NewRoute() {
                 <div className="buttonContainer">
                 <div className="addButtonContainer">
                     <span className="confirmAdd">Confirm Add ?</span>
-                    <button type='submit' className='addButton' onClick={(e) => {
+                    <button type='submit' className={errMsg ? 'offscreen' : 'addButton'} onClick={(e) => {
                         e.preventDefault();
                         handleAdd();
                     }}>
