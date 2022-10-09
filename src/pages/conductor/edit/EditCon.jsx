@@ -16,6 +16,7 @@ class EditCon extends Component{
 
     componentDidMount() {
         const {id} = this.props.params;
+        /*
         axios.get('http://localhost/panelApi/conductor/', {
             params: {
                 sid: id
@@ -24,6 +25,7 @@ class EditCon extends Component{
             const conductor = res.data;
             this.setState({conductor})
         })
+        */
     }
 
     render(){
@@ -100,10 +102,10 @@ class EditCon extends Component{
               data.set('prefix', num[0]);
               data.set('num', num[1]);
 
-              axios.post('http://localhost/panelApi/conductor/', data).
+              /*axios.post('http://localhost/panelApi/conductor/', data).
               then(() => {
                 this.props.navigate(-1, {replace: true});
-              })
+              })*/
               
 
             }}

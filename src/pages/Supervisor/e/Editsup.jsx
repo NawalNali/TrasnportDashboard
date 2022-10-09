@@ -19,6 +19,7 @@ class EditSup extends Component {
    
   componentDidMount() {
     const {id} = this.props.params;
+    /*
     axios.get('http://localhost/panelApi/supervisor/', {
         params: {
           sid: id
@@ -28,6 +29,7 @@ class EditSup extends Component {
         this.setState({supervisor})
         
       });
+      */
   }
 
   
@@ -107,10 +109,10 @@ class EditSup extends Component {
               data.append('prefix', num[0]);
               data.append('num', num[1]);
 
-              axios.post('http://localhost/panelApi/supervisor/', data)
+              /*axios.post('http://localhost/panelApi/supervisor/', data)
               .then(() => {
                 this.props.navigate(-1, {replace: true});
-              })
+              })*/
               
 
             }}

@@ -13,11 +13,11 @@ class Conductor extends React.Component{
 
         function handleDelete(sID)
         {
-            axios.delete('http://localhost/panelApi/conductor/', 
+            /*axios.delete('http://localhost/panelApi/conductor/', 
       {data: sID,
       
       
-    }, )
+    }, )*/
 
       window.location.reload();
         }
@@ -54,7 +54,7 @@ class Conductor extends React.Component{
 
     componentDidMount(){
   
-        axios.get('http://localhost/panelApi/conductor/')
+        /*axios.get('http://localhost/panelApi/conductor/')
         .then(response => {
           const conductor = response.data;
           this.setState({ conductor });
@@ -64,6 +64,7 @@ class Conductor extends React.Component{
           console.log(e)
           
         })
+        */
       }
 
       render(){
@@ -83,10 +84,10 @@ class Conductor extends React.Component{
                         data.append('notesAdd', true);
                         data.append('notes', params.value != null ? params.value : "");
                         data.append('id', params.id);
-                        axios.post('http://localhost/panelApi/conductor/', data)
+                        /*axios.post('http://localhost/panelApi/conductor/', data)
                         .then(res => {
                           console.log(res);
-                        });
+                        });*/
                         
                       }}
                       components={

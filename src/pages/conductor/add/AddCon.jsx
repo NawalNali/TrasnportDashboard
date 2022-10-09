@@ -9,7 +9,7 @@ export default function AddCon() {
     var data = new FormData();
     const navigate = useNavigate();
     const handleAdd = () => {
-        axios.post('http://localhost/panelApi/conductor/', data);
+        //axios.post('http://localhost/panelApi/conductor/', data);
         navigate(-1, {replace: true});
         
     }

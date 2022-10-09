@@ -9,7 +9,7 @@ export default function Complain() {
     const params = useParams();
 
     const [complain, setComplain] = useState({});
-
+/*
     useEffect(() => {
         const {id} = params;
         axios.get('http://localhost/panelApi/complains/', {
@@ -21,6 +21,7 @@ export default function Complain() {
             setComplain(res?.data);
         })
     }, []);
+    */
 
     
   return (

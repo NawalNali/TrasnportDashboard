@@ -2,7 +2,7 @@ import React from 'react'
 import { Bar, BarChart, CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import './Chart.css'
 
-export default function Chart({ title, data, datakey, grid}) {
+export default function Chart({ title, data, datakey}) {
     
   return (
     <div className='chart'>
