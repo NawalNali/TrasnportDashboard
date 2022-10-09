@@ -25,7 +25,7 @@ export default function NewBus() {
     const [num, setNum] = useState();
   
   const navigate = useNavigate();
-    
+/*
   useEffect(() => {
     axios.get('http://localhost/panelApi/bus/')
     .then(res => {
@@ -33,6 +33,7 @@ export default function NewBus() {
       
     });
   },[]);
+  */
 
       useEffect(() => {
         for(var i = 0; i < bus.length; i++)
@@ -61,7 +62,7 @@ export default function NewBus() {
         data.append('insert', true);
 
 
-        axios.post('http://localhost/panelApi/bus/', data);
+        //axios.post('http://localhost/panelApi/bus/', data);
         navigate(-1, {replace: true});
       }
 

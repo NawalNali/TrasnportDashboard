@@ -22,7 +22,7 @@ export default function SpuStudent() {
       };
 
     const navigate = useNavigate();
-    
+    /*
     useEffect(() => {
         axios.get('http://localhost/panelApi/lernatastudent/')
         .then(res => {
@@ -34,13 +34,14 @@ export default function SpuStudent() {
             setRoute(res?.data);
         })
     }, []);
+    */
 
     function handleRegister()
     {
         var data = new FormData();
         data.append('id', stdID);
         data.append('routeID', routeID);
-        axios.post('http://localhost/panelApi/lernatastudent/', data);
+        //axios.post('http://localhost/panelApi/lernatastudent/', data);
 
     }
 
@@ -49,7 +50,7 @@ export default function SpuStudent() {
         var data = new FormData();
         data.append('unregister', true);
         data.append('id', stdID);
-        axios.post('http://localhost/panelApi/lernatastudent/', data);
+        //axios.post('http://localhost/panelApi/lernatastudent/', data);
 
     }
 

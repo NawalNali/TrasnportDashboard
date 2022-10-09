@@ -39,10 +39,10 @@ export default function BCard({bus}) {
       data.append('switch', true);
       data.append('id', bus.id);
       data.append('available', stats == 1 ? 0 : 1);
-      axios.post('http://localhost/panelApi/bus/', data)
+      /*axios.post('http://localhost/panelApi/bus/', data)
       .then(() => {
         setState(!stats);
-      });
+      });*/
     }
 
     const [expanded, setExpanded] = React.useState(false);

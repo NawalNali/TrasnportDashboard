@@ -15,11 +15,11 @@ class Supervisor extends React.Component {
     super();
     
     function handleDelete(sID) {
-      axios.delete('http://localhost/panelApi/supervisor/', 
+      /*axios.delete('http://localhost/panelApi/supervisor/', 
       {data: sID,
       
       
-    }, );
+    }, );*/
 
       window.location.reload();
     }
@@ -61,7 +61,7 @@ class Supervisor extends React.Component {
 
 componentDidMount(){
   
-  axios.get('http://localhost/panelApi/supervisor/')
+  /*axios.get('http://localhost/panelApi/supervisor/')
   .then(response => {
     const supervisor = response.data;
     console.log(supervisor);
@@ -71,7 +71,7 @@ componentDidMount(){
   .catch(e => {
     console.log(e)
     
-  })
+  })*/
 }
 
 
@@ -95,7 +95,7 @@ render(){
                   data.append('notesAdd', true);
                   data.append('notes', params.value != null ? params.value : "");
                   data.append('id', params.id);
-                  axios.post('http://localhost/panelApi/supervisor/', data);
+                  //axios.post('http://localhost/panelApi/supervisor/', data);
                   
                 }}
                 components={

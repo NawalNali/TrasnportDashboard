@@ -11,20 +11,21 @@ export default function Complains() {
   const [complains, setComplains] = useState([]);
 
   const navigate = useNavigate();
-
+/*
   useEffect(() =>{
     axios.get('http://localhost/panelApi/complains/')
     .then(res => {
       setComplains(res?.data);
     })
   }, [])
+  */
 
 
   function handleDelete(sID)
   {
-    axios.delete('http://localhost/panelApi/complains/', {
+    /*axios.delete('http://localhost/panelApi/complains/', {
       data: sID
-    });
+    });*/
     window.location.reload();
   }
   return (

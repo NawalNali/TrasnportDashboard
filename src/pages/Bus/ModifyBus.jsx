@@ -21,7 +21,7 @@ export default function ModifyBus() {
     const [address, setAddress] = useState();
     const [prefix, setPrefix] = useState();
     const [num, setNum] = useState();
-
+/*
     useEffect(() => {
         axios.get('http://localhost/panelApi/bus/', {
             params: {
@@ -31,6 +31,7 @@ export default function ModifyBus() {
             setBus(res?.data);
         })
     }, [])
+    */
 
     useEffect(() => {
         setSeatN(bus.noseats);
@@ -52,7 +53,7 @@ export default function ModifyBus() {
         data.append('id', id);
         data.append('noseats', seatN);
         data.append('update', true);
-        axios.post('http://localhost/panelApi/bus/', data);
+        //axios.post('http://localhost/panelApi/bus/', data);
         navigate(-1, {replace: true});
     }
 

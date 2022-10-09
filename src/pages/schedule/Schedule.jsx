@@ -12,9 +12,9 @@ export default function Schedule() {
     const [data, setData] = useState([]);
 
     const handleDelete = (sID) => {
-        axios.delete('http://localhost/panelApi/route/', {
+        /*axios.delete('http://localhost/panelApi/route/', {
             data: sID
-        });
+        });*/
 
         window.location.reload();
     }
@@ -37,6 +37,7 @@ export default function Schedule() {
 
 
     ]
+    /*
     useEffect(() => {
         axios.get("http://localhost/panelApi/route/")
         .then(res => {
@@ -44,6 +45,7 @@ export default function Schedule() {
             console.log(res?.data);
         })
     }, []);
+    */
 
     const StyledDataGrid = styled(DataGrid)({
         root: {
@@ -89,7 +91,7 @@ export default function Schedule() {
                         data.append('notesAdd', true);
                         data.append('notes', params.value != null ? params.value : "");
                         data.append('id', params.id);
-                        axios.post("http://localhost/panelApi/route/", data);
+                        //axios.post("http://localhost/panelApi/route/", data);
 
                       }}
                       

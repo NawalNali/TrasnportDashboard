@@ -7,31 +7,39 @@ import axios from 'axios'
 export default function Boxinfo() {
 
     const [supCount, setSupCount] = useState(() => {
+        /*
         axios.get("http://localhost/panelApi/getCount/supervisor.php").
         then(res => {
             setSupCount(res.data[0][0]);
         })
+        */
     });
 
     const [conCount, setConCount] = useState(() => {
+        /*
         axios.get("http://localhost/panelApi/getCount/conductor.php").
         then(res => {
             setConCount(res.data[0][0]);
         })
+        */
     });
 
     const [alertCount, setAlertCount] = useState(() => {
+        /*
         axios.get("http://localhost/panelApi/getCount/alert.php").
         then(res => {
             setAlertCount(res.data[0][0]);
         })
+        */
     });
 
     const [complainCount, setComplainCount] = useState(() => {
+        /*
         axios.get("http://localhost/panelApi/getCount/complain.php").
         then(res => {
             setComplainCount(res.data[0][0]);
         })
+        */
     });
 
     

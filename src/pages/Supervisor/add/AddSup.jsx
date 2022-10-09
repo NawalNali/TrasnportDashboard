@@ -10,7 +10,7 @@ export default function AddSup() {
     var data = new FormData();
     const navigate = useNavigate();
     const handleAdd = () => {
-        axios.post('http://localhost/panelApi/supervisor/', data);
+        //axios.post('http://localhost/panelApi/supervisor/', data);
         navigate(-1, {replace: true});
         
     }

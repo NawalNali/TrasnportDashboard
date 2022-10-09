@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 export default function Alerts() {
     const [alert, setAlert] = useState([]);
-
+/*
     useEffect(
         () => {
             axios.get('http://localhost/panelApi/alerts/')
@@ -18,6 +18,7 @@ export default function Alerts() {
             })
         }
     , [])
+    */
 
     
 
@@ -48,7 +49,7 @@ export default function Alerts() {
                         var data = new FormData();
                         data.append('status', 1);
                         data.append('ID', params.row.id);
-                        axios.post('http://localhost/panelApi/alerts/', data);
+                        //axios.post('http://localhost/panelApi/alerts/', data);
                         window.location.reload();
                         
                         

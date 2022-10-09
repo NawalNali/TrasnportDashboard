@@ -15,13 +15,14 @@ export default function Bus() {
     
     const [page, setPage] = useState(1);
    
-
+/*
     useEffect(() => {
       axios.get('http://localhost/panelApi/bus/')
       .then(res => {
         setBus(res?.data);
       });
     });
+    */
 
     //Pageination
     const PER_PAGE = 9

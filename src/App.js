@@ -38,7 +38,7 @@ import ModifyBus from "./pages/Bus/ModifyBus.jsx";
 
 function App() {
   
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(true);
   
   const userProvider = useMemo(() => ([user, setUser]), [user, setUser]);
   

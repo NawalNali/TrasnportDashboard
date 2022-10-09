@@ -24,13 +24,14 @@ export default function NewRoute() {
     const [routes, setRoutes] = useState([]);
     const [errMsg, setErrMsg] = useState('');
     const errRef = useRef();
-
+/*
     useEffect(() => {
         axios.get('http://localhost/panelApi/route/')
         .then(res => {
             setRoutes(res?.data);
         })
     }, [])
+    */
 
     useEffect(() => {
         for(var i = 0; i < routes.length; i++)

@@ -16,7 +16,7 @@ export default function Student() {
         const [stdID, setStdID] = useState();
 
         const [open, setOpen] = useState(false);
-
+/*
         useEffect(() => {
           axios.get('http://localhost/panelApi/students/')
           .then(res => {
@@ -24,13 +24,13 @@ export default function Student() {
             setStudents(res?.data);
           })
         }, [])
-
+*/
         function handleunRegister()
         {
             var data = new FormData();
             data.append('unregister', true);
             data.append('id', stdID)
-            axios.post('http://localhost/panelApi/lernatastudent/', data);
+            //axios.post('http://localhost/panelApi/lernatastudent/', data);
             window.location.reload();
         }
 

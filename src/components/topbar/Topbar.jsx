@@ -27,7 +27,7 @@ export default function Topbar() {
                 <div onClick={() => {
                     setUser(null);
                     localStorage.clear();
-                    axios.post("http://localhost/panelApi/logout");
+                    //axios.post("http://localhost/panelApi/logout");
                     navigate('/login', {replace: true});
                 }} className="topbarIconContainer">
                     

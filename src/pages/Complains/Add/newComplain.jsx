@@ -21,13 +21,14 @@ export default function NewComplain() {
         "Lost Something"
 
     ]
-
+/*
     useEffect(() => {
         axios.get('http://localhost/panelApi/students/')
         .then(res => {
             setStudents(res?.data);
         })
     })
+    */
 
     const navigate = useNavigate();
     const handleAdd = () => {
@@ -36,10 +37,10 @@ export default function NewComplain() {
         data.append('desc', desc);
         data.append('type', type);
         data.append('stdID', stdID);
-        axios.post('http://localhost/panelApi/complains/', data)
+        /*axios.post('http://localhost/panelApi/complains/', data)
         .then(res => {
             console.log(res?.data);
-        });
+        });*/
         
     }
 

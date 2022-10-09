@@ -45,6 +45,7 @@ export default function Login () {
         const data = new FormData();
         data.append('adminname', user);
         data.append('password', pwd);
+        /*
         try
         {
           const res = await axios.post('http://localhost/panelApi/login/', data);
@@ -80,6 +81,7 @@ export default function Login () {
       }
       errRef.current.focus();
       }
+      */
         //Axios with auth
       }
 
